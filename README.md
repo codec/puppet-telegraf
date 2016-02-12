@@ -1,4 +1,6 @@
-# Puppet module for InfluxData's Telegraf (<https://github.com/influxdata/telegraf>):
+# Puppet module for InfluxData's Telegraf
+
+Telegraf (<https://github.com/influxdata/telegraf>) is a universal monitoring agent from InfluxData, which can forward metrics to many different systems and collect stats from many different things on your system using plugins. This puppet module supports the plugins which I personally use.
 
 The manifests/package.pp is derived from <https://github.com/rplessl/puppet-telegraf>
 
