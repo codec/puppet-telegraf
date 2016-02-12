@@ -4,32 +4,38 @@
 <% if @drop -%>
   # Drop metrics matching these patterns:
   drop = <%= @drop.inspect %>
+
 <% end -%>
 <% if @interval -%>
   # Specific update interval for this plugin:
   interval = "<%= @interval %>"
+
 <% end -%>
 <% if @name_override -%>
   # Override the measurement-name for this plugin:
   name_override = "<%= @name_override %>"
+
 <% end -%>
 <% if @name_prefix -%>
   # Prefix the measurement-name for this plugin:
   name_prefix = "<%= @name_prefix %>"
+
 <% end -%>
 <% if @name_suffix -%>
   # Suffix the measurement-name for this plugin:
   name_suffix = "<%= @name_suffix %>"
+
 <% end -%>
 <% if @pass -%>
   # Pass metrics matching these patterns:
   pass = <%= @pass.inspect %>
+
 <% end -%>
 <% if @tags -%>
   # Optional tags specifically for this plugin:
   tags = <%= @tags.inspect %>
-<% end -%>
 
+<% end -%>
   # By default, telegraf gather stats for all mountpoints.
   # Setting mountpoints will restrict the stats to the specified mountpoints.
 <% if @mount_points -%>
@@ -42,9 +48,11 @@
   # Drop metrics with these tags:
   [inputs.statsd.tagdrop]
     <%= @tagdrop.inspect %>
+
 <% end -%>
 <% if @tagpass -%>
   # Pass metrics with these tags:
   [inputs.statsd.tagpass]
     <%= @tagpass.inspect %>
+
 <% end -%>

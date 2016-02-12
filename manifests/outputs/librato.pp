@@ -6,8 +6,8 @@ class telegraf::outputs::librato (
   $ensure     = present,
   $api_user   = 'telegraf@influxdb.com',
   $api_token  = 'my-secret-token',
-  $source_tag = 'host',
-  $timeout    = '5s',
+  $source_tag = undef,
+  $timeout    = undef,
 ){
 
   if $ensure == 'present' {
