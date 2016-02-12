@@ -1,0 +1,78 @@
+# Run a local statsd interface:
+[[inputs.statsd]]
+
+<% if @drop -%>
+  # Drop metrics matching these patterns:
+  drop = <%= @drop.inspect %>
+<% end -%>
+<% if @interval -%>
+  # Specific update interval for this plugin:
+  interval = "<%= @interval %>"
+<% end -%>
+<% if @name_override -%>
+  # Override the measurement-name for this plugin:
+  name_override = "<%= @name_override %>"
+<% end -%>
+<% if @name_prefix -%>
+  # Prefix the measurement-name for this plugin:
+  name_prefix = "<%= @name_prefix %>"
+<% end -%>
+<% if @name_suffix -%>
+  # Suffix the measurement-name for this plugin:
+  name_suffix = "<%= @name_suffix %>"
+<% end -%>
+<% if @pass -%>
+  # Pass metrics matching these patterns:
+  pass = <%= @pass.inspect %>
+<% end -%>
+<% if @tags -%>
+  # Optional tags specifically for this plugin:
+  tags = <%= @tags.inspect %>
+<% end -%>
+
+  # Address and port to host UDP listener on:
+  service_address = "<%= @service_address %>"
+
+  # Delete gauges every interval (default=false):
+  delete_gauges = <%= @delete_gauges %>
+
+  # Delete counters every interval (default=false):
+  delete_counters = <%= @delete_counters %>
+
+  # Delete sets every interval (default=false):
+  delete_sets = <%= @delete_sets %>
+
+  # Delete timings & histograms every interval (default=true):
+  delete_timings = <%= @delete_timings %>
+
+  # Percentiles to calculate for timing & histogram stats:
+  percentiles = [<%= @percentiles.join(',') %>]
+
+  # Templates are used to filter and parse flat delimited metrics:
+<% if @templates -%>
+  templates = <%= @templates.inspect %>
+<% else -%>
+  # templates = [
+  #     "cpu.* measurement*"
+  # ]
+<% end -%>
+
+  # Number of UDP messages allowed to queue up, once filled,
+  # the statsd server will start dropping packets
+  allowed_pending_messages = <%= @allowed_pending_messages %>
+
+  # Number of timing/histogram values to track per-measurement in the
+  # calculation of percentiles. Raising this limit increases the accuracy
+  # of percentiles but also increases the memory usage and cpu time.
+  percentile_limit = <%= @percentile_limit %>
+
+<% if @tagdrop -%>
+  # Drop metrics with these tags:
+  [inputs.statsd.tagdrop]
+    <%= @tagdrop %>
+<% end -%>
+<% if @tagpass -%>
+  # Pass metrics with these tags:
+  [inputs.statsd.tagpass]
+    <%= @tagpass %>
+<% end -%>
