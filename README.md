@@ -86,5 +86,5 @@ The manifests/package.pp is derived from <https://github.com/rplessl/puppet-tele
 
     # Monitor system utilisation (load averages etc):
     class { '::telegraf::inputs::system': }
-
   }
+
