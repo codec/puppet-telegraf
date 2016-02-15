@@ -3,11 +3,12 @@
 # Manage the "librato" output:
 #
 class telegraf::outputs::librato (
-  $ensure     = present,
-  $api_user   = 'telegraf@influxdb.com',
-  $api_token  = 'my-secret-token',
-  $source_tag = undef,
-  $timeout    = undef,
+  $ensure         = present,
+  $api_user       = 'telegraf@influxdb.com',
+  $api_token      = 'my-secret-token',
+  $name_from_tags = false
+  $source_tag     = undef,
+  $timeout        = undef,
 ){
 
   if $ensure == 'present' {

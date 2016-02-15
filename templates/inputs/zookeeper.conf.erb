@@ -45,13 +45,13 @@
 
 <% if @tagdrop -%>
   # Drop metrics with these tags:
-  [inputs.statsd.tagdrop]
+  [inputs.zookeeper.tagdrop]
     <%= @tagdrop.inspect %>
 
 <% end -%>
 <% if @tagpass -%>
   # Pass metrics with these tags:
-  [inputs.statsd.tagpass]
+  [inputs.zookeeper.tagpass]
     <%= @tagpass.inspect %>
 
 <% end -%>

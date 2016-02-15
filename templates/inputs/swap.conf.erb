@@ -38,13 +38,13 @@
 <% end -%>
 <% if @tagdrop -%>
   # Drop metrics with these tags:
-  [inputs.statsd.tagdrop]
+  [inputs.swap.tagdrop]
     <%= @tagdrop.inspect %>
 
 <% end -%>
 <% if @tagpass -%>
   # Pass metrics with these tags:
-  [inputs.statsd.tagpass]
+  [inputs.swap.tagpass]
     <%= @tagpass.inspect %>
 
 <% end -%>

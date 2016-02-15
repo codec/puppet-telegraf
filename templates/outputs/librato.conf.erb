@@ -7,6 +7,12 @@
   # Librato API token:
   api_token = "<%= @api_token %>"
 
+<% if @name_from_tags -%>
+  # Build metric names from tag-values
+  # Uses the measurement, tag-values and field-names to derive the Librato metric name.
+  name_from_tags = <%= @name_from_tags %>
+
+<% end -%>
 <% if @source_tag -%>
   # Tag Field to populate source attribute (optional)
   # This is typically the _hostname_ from which the metric was obtained.

@@ -49,13 +49,13 @@
 
 <% if @tagdrop -%>
   # Drop metrics with these tags:
-  [inputs.statsd.tagdrop]
+  [inputs.diskio.tagdrop]
     <%= @tagdrop.inspect %>
 
 <% end -%>
 <% if @tagpass -%>
   # Pass metrics with these tags:
-  [inputs.statsd.tagpass]
+  [inputs.diskio.tagpass]
     <%= @tagpass.inspect %>
 
 <% end -%>
