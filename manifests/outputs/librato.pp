@@ -6,7 +6,7 @@ class telegraf::outputs::librato (
   $ensure         = present,
   $api_user       = 'telegraf@influxdb.com',
   $api_token      = 'my-secret-token',
-  $name_from_tags = false
+  $name_from_tags = false,
   $source_tag     = undef,
   $timeout        = undef,
 ){
