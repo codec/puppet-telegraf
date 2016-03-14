@@ -50,12 +50,16 @@
 <% if @tagdrop -%>
   # Drop metrics with these tags:
   [inputs.diskio.tagdrop]
-    <%= @tagdrop.inspect %>
+    <% @tagdrop.sort.each do |key, value| -%>
+    <%= key %> = <%= value %>
+    <% end -%>
 
 <% end -%>
 <% if @tagpass -%>
   # Pass metrics with these tags:
   [inputs.diskio.tagpass]
-    <%= @tagpass.inspect %>
+    <% @tagpass.sort.each do |key, value| -%>
+    <%= key %> = <%= value %>
+    <% end -%>
 
 <% end -%>
