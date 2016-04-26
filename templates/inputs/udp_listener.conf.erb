@@ -1,0 +1,73 @@
+# Generic UDP listener:
+[[inputs.udp_listener]]
+
+<% if @drop -%>
+  # Drop metrics matching these patterns:
+  drop = <%= @drop.inspect %>
+
+<% end -%>
+<% if @interval -%>
+  # Specific update interval for this plugin:
+  interval = "<%= @interval %>"
+
+<% end -%>
+<% if @name_override -%>
+  # Override the measurement-name for this plugin:
+  name_override = "<%= @name_override %>"
+
+<% end -%>
+<% if @name_prefix -%>
+  # Prefix the measurement-name for this plugin:
+  name_prefix = "<%= @name_prefix %>"
+
+<% end -%>
+<% if @name_suffix -%>
+  # Suffix the measurement-name for this plugin:
+  name_suffix = "<%= @name_suffix %>"
+
+<% end -%>
+<% if @pass -%>
+  # Pass metrics matching these patterns:
+  pass = <%= @pass.inspect %>
+
+<% end -%>
+<% if @tags -%>
+  # Optional tags specifically for this plugin:
+  tags = <%= @tags.inspect %>
+
+<% end -%>
+  ## Address and port to host UDP listener on
+  service_address = "<%= @service_address %>"
+
+  ## Number of UDP messages allowed to queue up. Once filled, the
+  ## UDP listener will start dropping packets.
+  allowed_pending_messages = <%= @allowed_pending_messages %>
+
+  ## UDP packet size for the server to listen for. This will depend
+  ## on the size of the packets that the client is sending, which is
+  ## usually 1500 bytes.
+  udp_packet_size = <%= @udp_packet_size %>
+
+  ## Data format to consume. 
+
+  ## Each data format has it's own unique set of configuration options, read
+  ## more about them here:
+  ## https://github.com/influxdata/telegraf/blob/master/docs/DATA_FORMATS_INPUT.md
+  data_format = "<%= @data_format %>"
+
+<% if @tagdrop -%>
+  # Drop metrics with these tags:
+  [inputs.udp_listener.tagdrop]
+    <% @tagdrop.sort.each do |key, value| -%>
+    <%= key %> = <%= value %>
+    <% end -%>
+
+<% end -%>
+<% if @tagpass -%>
+  # Pass metrics with these tags:
+  [inputs.udp_listener.tagpass]
+    <% @tagpass.sort.each do |key, value| -%>
+    <%= key %> = <%= value %>
+    <% end -%>
+
+<% end -%>
