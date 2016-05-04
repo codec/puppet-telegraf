@@ -36,6 +36,19 @@
   # ie, if interval="10s" then always collect on :00, :10, :20, etc.
   round_interval = <%= @agent_round_interval %>
 
+  ## Telegraf will cache metric_buffer_limit metrics for each output, and will
+  ## flush this buffer on a successful write.
+  metric_buffer_limit = <%= @agent_metric_buffer_limit %>
+
+  ## Flush the buffer whenever full, regardless of flush_interval.
+  flush_buffer_when_full = <%= @agent_flush_buffer_when_full %>
+
+  ## Collection jitter is used to jitter the collection by a random amount.
+  ## Each plugin will sleep for a random time within jitter before collecting.
+  ## This can be used to avoid many plugins querying things like sysfs at the
+  ## same time, which can have a measurable effect on the system.
+  collection_jitter = "<%= @agent_collection_jitter %>"
+
   # Default data flushing interval for all outputs. You should not set this below
   # interval. Maximum flush_interval will be flush_interval + flush_jitter
   flush_interval = "<%= @agent_flush_interval %>"
