@@ -27,8 +27,8 @@ class telegraf::inputs::zookeeper (
     }
   } else {
     file { "${::telegraf::config_directory}/inputs-zookeeper.conf":
-      ensure  => absent,
-      notify  => Service['telegraf'],
+      ensure => absent,
+      notify => Service['telegraf'],
     }
   }
 

@@ -30,8 +30,8 @@ class telegraf::inputs::udp_listener (
     }
   } else {
     file { "${::telegraf::config_directory}/inputs-udp_listener.conf":
-      ensure  => absent,
-      notify  => Service['telegraf'],
+      ensure => absent,
+      notify => Service['telegraf'],
     }
   }
 

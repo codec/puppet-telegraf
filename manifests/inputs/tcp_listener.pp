@@ -30,8 +30,8 @@ class telegraf::inputs::tcp_listener (
     }
   } else {
     file { "${::telegraf::config_directory}/inputs-tcp_listener.conf":
-      ensure  => absent,
-      notify  => Service['telegraf'],
+      ensure => absent,
+      notify => Service['telegraf'],
     }
   }
 

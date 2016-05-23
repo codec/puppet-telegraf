@@ -28,8 +28,8 @@ class telegraf::inputs::cpu (
     }
   } else {
     file { "${::telegraf::config_directory}/inputs-cpu.conf":
-      ensure  => absent,
-      notify  => Service['telegraf'],
+      ensure => absent,
+      notify => Service['telegraf'],
     }
   }
 

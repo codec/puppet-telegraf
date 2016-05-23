@@ -35,8 +35,8 @@ class telegraf::inputs::statsd (
     }
   } else {
     file { "${::telegraf::config_directory}/inputs-statsd.conf":
-      ensure  => absent,
-      notify  => Service['telegraf'],
+      ensure => absent,
+      notify => Service['telegraf'],
     }
   }
 

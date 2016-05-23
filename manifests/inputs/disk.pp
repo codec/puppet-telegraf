@@ -27,8 +27,8 @@ class telegraf::inputs::disk (
     }
   } else {
     file { "${::telegraf::config_directory}/inputs-disk.conf":
-      ensure  => absent,
-      notify  => Service['telegraf'],
+      ensure => absent,
+      notify => Service['telegraf'],
     }
   }
 

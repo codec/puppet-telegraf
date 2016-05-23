@@ -26,8 +26,8 @@ class telegraf::inputs::mem(
     }
   } else {
     file { "${::telegraf::config_directory}/inputs-mem.conf":
-      ensure  => absent,
-      notify  => Service['telegraf'],
+      ensure => absent,
+      notify => Service['telegraf'],
     }
   }
 

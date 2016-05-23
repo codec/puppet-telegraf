@@ -26,8 +26,8 @@ class telegraf::inputs::system(
     }
   } else {
     file { "${::telegraf::config_directory}/inputs-system.conf":
-      ensure  => absent,
-      notify  => Service['telegraf'],
+      ensure => absent,
+      notify => Service['telegraf'],
     }
   }
 

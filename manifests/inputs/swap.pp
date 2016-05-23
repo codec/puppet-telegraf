@@ -26,8 +26,8 @@ class telegraf::inputs::swap (
     }
   } else {
     file { "${::telegraf::config_directory}/inputs-swap.conf":
-      ensure  => absent,
-      notify  => Service['telegraf'],
+      ensure => absent,
+      notify => Service['telegraf'],
     }
   }
 

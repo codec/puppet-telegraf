@@ -27,8 +27,8 @@ class telegraf::inputs::nsq (
     }
   } else {
     file { "${::telegraf::config_directory}/inputs-nsq.conf":
-      ensure  => absent,
-      notify  => Service['telegraf'],
+      ensure => absent,
+      notify => Service['telegraf'],
     }
   }
 

@@ -1,8 +1,8 @@
-# == Class: telegraf::inputs::net
+# == Class: telegraf::inputs::puppetagent
 #
-# Manage the "net" input:
+# Manage the "puppetagent" input:
 #
-class telegraf::inputs::net (
+class telegraf::inputs::puppetagent (
   $drop          = undef,
   $ensure        = present,
   $interval      = undef,
@@ -13,20 +13,20 @@ class telegraf::inputs::net (
   $tagdrop       = undef,
   $tagpass       = undef,
   $tags          = undef,
-  $interfaces    = undef,
+  $location      = '/var/lib/puppet/state/last_run_summary.yaml',
 ){
 
   if $ensure == 'present' {
-    file { "${::telegraf::config_directory}/inputs-net.conf":
+    file { "${::telegraf::config_directory}/inputs-puppetagent.conf":
       ensure  => file,
-      content => template('telegraf/inputs/net.conf.erb'),
+      content => template('telegraf/inputs/puppetagent.conf.erb'),
       mode    => '0444',
       owner   => 'root',
       group   => 'telegraf',
       notify  => Service['telegraf'];
     }
   } else {
-    file { "${::telegraf::config_directory}/inputs-net.conf":
+    file { "${::telegraf::config_directory}/inputs-puppetagent.conf":
       ensure => absent,
       notify => Service['telegraf'],
     }
