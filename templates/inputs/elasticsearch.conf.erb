@@ -1,0 +1,60 @@
+# Monitor ElasticSearch stats:
+[[inputs.elasticsearch]]
+
+<% if @drop -%>
+  # Drop metrics matching these patterns:
+  drop = <%= @drop.inspect %>
+
+<% end -%>
+<% if @interval -%>
+  # Specific update interval for this plugin:
+  interval = "<%= @interval %>"
+
+<% end -%>
+<% if @name_override -%>
+  # Override the measurement-name for this plugin:
+  name_override = "<%= @name_override %>"
+
+<% end -%>
+<% if @name_prefix -%>
+  # Prefix the measurement-name for this plugin:
+  name_prefix = "<%= @name_prefix %>"
+
+<% end -%>
+<% if @name_suffix -%>
+  # Suffix the measurement-name for this plugin:
+  name_suffix = "<%= @name_suffix %>"
+
+<% end -%>
+<% if @pass -%>
+  # Pass metrics matching these patterns:
+  pass = <%= @pass.inspect %>
+
+<% end -%>
+<% if @tags -%>
+  # Optional tags specifically for this plugin:
+  tags = <%= @tags.inspect %>
+
+<% end -%>
+  cluster_health = <%= @cluster_health %>
+  local = <%= @local %>
+
+  ## List of ElasticSearch servers to check:
+  servers = <%= @servers.inspect %>
+
+<% if @tagdrop -%>
+  # Drop metrics with these tags:
+  [inputs.elasticsearch.tagdrop]
+    <% @tagdrop.sort.each do |key, value| -%>
+    <%= key %> = <%= value %>
+    <% end -%>
+
+<% end -%>
+<% if @tagpass -%>
+  # Pass metrics with these tags:
+  [inputs.elasticsearch.tagpass]
+    <% @tagpass.sort.each do |key, value| -%>
+    <%= key %> = <%= value %>
+    <% end -%>
+
+<% end -%>

@@ -92,3 +92,26 @@ class profile::telegraf(
 
 }
 ```
+
+## Supported plugins
+
+### Input
+* cpu
+* disk
+* diskio
+* elasticsearch
+* mem
+* net
+* nsq
+* puppetagent
+* statsd
+* swap
+* system
+* tcp_listener
+* udp_listener
+* zookeeper
+
+### Output
+* influxdb
+* librato
+* prometheus
