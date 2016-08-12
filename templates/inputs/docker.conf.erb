@@ -1,0 +1,68 @@
+# Monitor docker metrics:
+[[inputs.docker]]
+
+<% if @endpoint -%>
+  endpoint = "<%= @endpoint %>"
+<% end -%>
+
+<% if @container_names -%>
+  container_names = [ <%= @container_names.map { |x| "\"#{x}\"" }.join(', ') -%> ]
+<% end -%>
+
+<% if @drop -%>
+  # Drop metrics matching these patterns:
+  drop = <%= @drop.inspect %>
+
+<% end -%>
+<% if @interval -%>
+  # Specific update interval for this plugin:
+  interval = "<%= @interval %>"
+
+<% end -%>
+<% if @name_override -%>
+  # Override the measurement-name for this plugin:
+  name_override = "<%= @name_override %>"
+
+<% end -%>
+<% if @name_prefix -%>
+  # Prefix the measurement-name for this plugin:
+  name_prefix = "<%= @name_prefix %>"
+
+<% end -%>
+<% if @name_suffix -%>
+  # Suffix the measurement-name for this plugin:
+  name_suffix = "<%= @name_suffix %>"
+
+<% end -%>
+<% if @pass -%>
+  # Pass metrics matching these patterns:
+  pass = <%= @pass.inspect %>
+
+<% end -%>
+<% if @tags -%>
+  # Optional tags specifically for this plugin:
+  tags = <%= @tags.inspect %>
+
+<% end -%>
+  # Whether to report per-cpu stats or not:
+  percpu = <%= @percpu %>
+
+  # Whether to report total system cpu stats or not:
+  totalcpu = <%= @totalcpu %>
+
+<% if @tagdrop -%>
+  # Drop metrics with these tags:
+  [inputs.docker.tagdrop]
+    <% @tagdrop.sort.each do |key, value| -%>
+    <%= key %> = <%= value %>
+    <% end -%>
+
+<% end -%>
+<% if @tagpass -%>
+  # Pass metrics with these tags:
+  [inputs.docker.tagpass]
+    <% @tagpass.sort.each do |key, value| -%>
+    <%= key %> = <%= value %>
+    <% end -%>
+
+<% end -%>
